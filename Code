@@ -1,0 +1,44 @@
+import math
+import numpy as np
+
+
+# Activation Functions
+def sigmoid(x):
+return 1 / (1 + math.exp(-x))
+
+
+def tanh(x):
+return (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
+
+
+def relu(x):
+return max(0, x)
+
+
+def leaky_relu(x):
+return max(0.1*x, x)
+
+
+# Examples
+print("Sigmoid:", sigmoid(100), sigmoid(-56))
+print("Tanh:", tanh(-56), tanh(1), tanh(50))
+print("ReLU:", relu(-100), relu(8))
+print("Leaky ReLU:", leaky_relu(-100), leaky_relu(8))
+
+
+# Financial Calculations
+revenue = np.array([[180,200,220],[24,36,40],[12,18,20]])
+expenses = np.array([[80,90,100],[10,16,20],[8,10,10]])
+profit = revenue - expenses
+print("Profit:")
+print(profit)
+
+
+price_per_unit = np.array([1000,400,1200])
+units = np.array([[30,40,50],[5,10,15],[2,5,7]])
+total_per_product = price_per_unit * units
+print("Total Revenue per Product:")
+print(total_per_product)
+total_revenue_rows = np.dot(units, price_per_unit)
+print("Total Revenue per Row:")
+print(total_revenue_rows)
